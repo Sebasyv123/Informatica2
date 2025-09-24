@@ -7,11 +7,12 @@
 
 class SensorBiomedico:
     def __init__(self, id_sensor, tipo, unidad_medida):
+        # Atributos privados (encapsulación con __)
         self.__id_sensor = id_sensor
         self.__tipo = tipo
         self.__unidad_medida = unidad_medida
 
-    # Getters
+    # Getters para acceder a atributos privados
     def getIDSensor(self):
         return self.__id_sensor
     def getTipo(self):
@@ -19,7 +20,7 @@ class SensorBiomedico:
     def getUnidadMedida(self):
         return self.__unidad_medida
 
-    # Setters
+    # Setters para modificar atributos privados
     def setIDSensor(self, id_sensor):
         self.__id_sensor = id_sensor
     def setTipo(self, tipo):
@@ -84,6 +85,7 @@ class SensorTemperatura(SensorBiomedico):
 
 class SistemaMonitoreo:
     def __init__(self):
+        # Lista que almacenará los sensores creado
         self.sensores = []
 
     def agregar_sensor(self, sensor):
