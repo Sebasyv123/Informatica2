@@ -1,3 +1,6 @@
+#Julián Pino
+#Sebastián Yepes
+
 # ==============================
 #   Clases de Sensores
 # ==============================
@@ -86,16 +89,16 @@ class SistemaMonitoreo:
     def agregar_sensor(self, sensor):
         # Evitar ID duplicado
         if any(s.getIDSensor() == sensor.getIDSensor() for s in self.sensores):
-            print("❌ Sensor con ID ya registrado.")
+            print("Sensor con ID ya registrado.")
             return
         self.sensores.append(sensor)
-        print("✅ Sensor agregado.")
+        print("Sensor agregado.")
 
     def ver_datos_sensor(self, id_sensor):
         for s in self.sensores:
             if s.getIDSensor() == id_sensor:
                 return str(s)
-        return "⚠️ Sensor no encontrado."
+        return "Sensor no encontrado."
 
     def contar_sensores(self):
         return len(self.sensores)
@@ -127,14 +130,14 @@ def main():
                     sensor = SensorCardiaco(id_sensor, unidad_medida, frecuencia)
                     sistema.agregar_sensor(sensor)
                 except ValueError:
-                    print("❌ Frecuencia inválida.")
+                    print("Frecuencia inválida.")
             elif tipo == 'respiratorio':
                 try:
                     capacidad = float(input("Capacidad de flujo (L/min): "))
                     sensor = SensorRespiratorio(id_sensor, unidad_medida, capacidad)
                     sistema.agregar_sensor(sensor)
                 except ValueError:
-                    print("❌ Capacidad inválida.")
+                    print("Capacidad inválida.")
             elif tipo == 'temperatura':
                 try:
                     min_rango = float(input("Rango mínimo de operación (°C): "))
@@ -142,9 +145,9 @@ def main():
                     sensor = SensorTemperatura(id_sensor, unidad_medida, (min_rango, max_rango))
                     sistema.agregar_sensor(sensor)
                 except ValueError:
-                    print("❌ Valores de rango inválidos.")
+                    print("Valores de rango inválidos.")
             else:
-                print("❌ Tipo de sensor no válido.")
+                print("Tipo de sensor no válido.")
 
         elif opcion == '2':
             id_sensor = input("Ingrese el ID del sensor: ").strip()
